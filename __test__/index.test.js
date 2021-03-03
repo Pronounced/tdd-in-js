@@ -15,8 +15,8 @@ test('subtract 1 from 2 to equal 1', () =>{
     expect(base.subtract([1,2])).toBe(-1);
 })
 
-test('subtract "bill" - "parrot" to equal NaN', () => {
-    expect(base.subtract(['bill', 'parrot'])).toBe(NaN);
+test('subtract "bill" - "parrot" to equal "Error"', () => {
+    expect(base.subtract(['bill', 'parrot'])).toBe("Error");
 })
 
 //divide
@@ -143,7 +143,7 @@ test('Raise 2 by 3 by 4 to return 4096', () => {
 
 //spy or mock
 test('runs operation method at least once', () => {
-    const spy = jest.spyOn(base, 'add');
-    expect(base.add([2,3])).toBe(5);
+    const spy = jest.spyOn(base, 'operation');
+    base.add([2,3]);
     expect(spy).toHaveBeenCalled();
 })

@@ -1,38 +1,40 @@
 function add (inputArr) {
-       return operation(inputArr, function (result, input) {
-            return result + input;
-        })
+    var res = this.operation(inputArr, function (result, input) {
+        return result + input;
+    })
+    return isNaN(res) ? "Error" : res;
 }
 
 function subtract(inputArr) {
-    return operation(inputArr, function (result, input) {
+    var res = this.operation(inputArr, function (result, input) {
         return result - input;
     })
+    return isNaN(res) ? "Error" : res;
 }
 
 function divide(inputArr) {
-    var res = operation(inputArr, function (result, input) {
+    var res = this.operation(inputArr, function (result, input) {
         return result / input;
     });
     return (res === Infinity) ? "Cannot Divide By Zero" : isNaN(res) ? "Error" : res;
 }
 
 function multiple(inputArr) {
-    var res = operation(inputArr, function (result, input) {
+    var res = this.operation(inputArr, function (result, input) {
         return result * input;
     });
     return isNaN(res) ? "Error" : res;
 }
 
 function modulus(inputArr) {
-    var res = operation(inputArr, function (result, input) {
+    var res = this.operation(inputArr, function (result, input) {
         return result % input;
     });
     return isNaN(res) ? "Error" : res ;
 }
 
 function exponential(inputArr) {
-    var res = operation(inputArr, function (result, input) {
+    var res = this.operation(inputArr, function (result, input) {
         return result ** input;
     });
     return isNaN(res) ? "Error" : res;
