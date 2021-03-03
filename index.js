@@ -5,24 +5,19 @@ function add (inputArr) {
 }
 
 function subtract(inputArr) {
-    try {
-        return operation(inputArr, function (result, input) {
-            return result - input;
-        })
-    } catch {
-        return "Cannot subtract two strings";
-    }
+    return operation(inputArr, function (result, input) {
+        return result - input;
+    })
 }
 
 function divide(inputArr) {
     var res = operation(inputArr, function (result, input) {
         return result / input;
     });
-    //return (res === Infinity || isNaN(res)) ? "Error" : res;
-    return (res === Infinity) ? "Cannot Divide By Zero" : isNaN(res) ? "Error" : res ;
+    return (res === Infinity) ? "Cannot Divide By Zero" : isNaN(res) ? "Error" : res;
 }
 
-function multiply(inputArr) {
+function multiple(inputArr) {
     var res = operation(inputArr, function (result, input) {
         return result * input;
     });
@@ -30,11 +25,17 @@ function multiply(inputArr) {
 }
 
 function modulus(inputArr) {
-    return inputArr;
+    var res = operation(inputArr, function (result, input) {
+        return result % input;
+    });
+    return isNaN(res) ? "Error" : res ;
 }
 
-function exponent(inputArr) {
-    return inputArr;
+function exponential(inputArr) {
+    var res = operation(inputArr, function (result, input) {
+        return result ** input;
+    });
+    return isNaN(res) ? "Error" : res;
 }
 
 function operation(inputArr, operator) {
@@ -46,4 +47,4 @@ function operation(inputArr, operator) {
 }
 
 
-module.exports = { subtract, add, divide, multiply, operation}
+module.exports = { subtract, add, divide, multiple, modulus, exponential, operation}
